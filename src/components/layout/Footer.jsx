@@ -33,16 +33,21 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="relative py-16 md:py-20 bg-soundbook-dark border-t border-white/10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Logo - Left */}
-          <Link to="/" className="text-3xl md:text-4xl font-bold text-white hover:text-soundbook-light-blue transition-colors">
+    <footer className="relative py-16 md:py-24 overflow-hidden">
+      {/* Subtle background texture and gradient */}
+      <div className="absolute inset-0 opacity-30" style={{
+        backgroundImage: `radial-gradient(circle at top right, rgba(30, 58, 95, 0.3) 0%, transparent 50%)`
+      }}></div>
+      
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center space-y-8 md:space-y-10">
+          {/* Logo - Centered at top */}
+          <Link to="/" className="text-4xl md:text-5xl lg:text-6xl font-bold text-white hover:text-soundbook-light-blue transition-colors">
             SOUNDBOOK
           </Link>
 
-          {/* Social Media Icons - Center */}
-          <div className="flex gap-6">
+          {/* Social Media Icons - Centered below logo */}
+          <div className="flex gap-4 md:gap-6">
             {socialLinks.map((social, index) => (
               <a
                 key={index}
@@ -50,15 +55,18 @@ const Footer = () => {
                 aria-label={social.name}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 hover:text-soundbook-light-blue transition-colors duration-200"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-[#1a1a1a] border border-gray-800 flex items-center justify-center text-white hover:bg-[#252525] hover:border-gray-700 transition-all duration-200"
               >
                 {social.icon}
               </a>
             ))}
           </div>
 
-          {/* Copyright - Right */}
-          <p className="text-white/60 text-sm">
+          {/* Separator Line */}
+          <div className="w-full max-w-md border-t border-white/10"></div>
+
+          {/* Copyright - Centered at bottom */}
+          <p className="text-white/60 text-sm md:text-base">
             © Copyright 2025. All Rights Reserved
           </p>
         </div>

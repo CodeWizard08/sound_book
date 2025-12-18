@@ -32,14 +32,8 @@ const WhatYouCanFind = () => {
   ]
 
   return (
-    <section className="relative py-20 md:py-32 bg-soundbook-dark overflow-hidden">
+    <section className="relative py-20 md:py-32 overflow-hidden">
       {/* Four-pointed stars */}
-      <div className="absolute top-20 left-10 w-4 h-4">
-        <div className="w-full h-full border-2 border-white/30 rotate-45"></div>
-      </div>
-      <div className="absolute bottom-20 right-10 w-4 h-4">
-        <div className="w-full h-full border-2 border-white/30 rotate-45"></div>
-      </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Headline */}
