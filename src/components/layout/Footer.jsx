@@ -42,7 +42,7 @@ const Footer = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center space-y-8 md:space-y-10">
           {/* Logo - Centered at top */}
-          <Link to="/" className="text-4xl md:text-5xl lg:text-6xl font-bold text-white hover:text-soundbook-light-blue transition-colors">
+          <Link to="/" className="text-5xl md:text-[100px] lg:text-[120px] lg:pb-5 font-bold text-white hover:text-soundbook-light-blue transition-colors">
             SOUNDBOOK
           </Link>
 

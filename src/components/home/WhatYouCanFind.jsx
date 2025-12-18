@@ -38,8 +38,7 @@ const WhatYouCanFind = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Headline */}
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center leading-tight">
-          <span className="text-outline">WHAT YOU CAN</span>
-          <br />
+          <span className="text-outline pr-4">WHAT YOU CAN</span>
           <span className="text-soundbook-light-blue">FIND</span>
         </h2>
 
@@ -49,24 +48,24 @@ const WhatYouCanFind = () => {
         </p>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 border border-white/10 rounded-2xl p-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300"
+              className={`p-4 ${index !== features.length - 1 ? 'border-r border-white/10' : ''}`}
             >
               {/* Circular icon with ring */}
-              <div className="relative w-20 h-20 mb-6 mx-auto">
+              <div className="relative w-20 h-20 mb-6">
                 <div className="absolute inset-0 rounded-full bg-soundbook-light-blue"></div>
                 <div className="absolute inset-0 rounded-full border-2 border-gray-400/50 -m-1"></div>
                 <div className="absolute inset-0 flex items-center justify-center text-white">
                   {feature.icon}
                 </div>
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-4 text-center">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                 {feature.title}
               </h3>
-              <p className="text-white/80 leading-relaxed text-center">
+              <p className="text-white/80 leading-relaxed">
                 {feature.description}
               </p>
             </div>

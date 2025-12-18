@@ -16,10 +16,7 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Animated Background */}
-      {/* Image background */}
-      {/* <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroImage})` }}></div> */}
-      {/* Abstract wave patterns */}
+      
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-soundbook-light-blue/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-soundbook-purple/20 rounded-full blur-3xl"></div>
@@ -51,12 +48,14 @@ const Hero = () => {
             />
             <button
               type="submit"
-              className="w-full sm:w-auto px-8 py-4 bg-soundbook-light-blue text-white rounded-lg font-semibold hover:bg-soundbook-light-blue/90 transition-colors duration-200 flex items-center justify-center gap-2"
+              className="px-6 py-2 md:px-6 md:py-3 bg-white text-soundbook-dark rounded-full font-semibold hover:bg-soundbook-light-blue/90 transition-colors duration-200 flex items-center gap-2"
             >
               Search
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+              <span className='w-8 h-8 bg-soundbook-light-blue rounded-full flex items-center justify-center'>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
             </button>
           </div>
         </form>

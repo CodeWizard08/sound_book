@@ -36,16 +36,14 @@ const CoreFeatures = () => {
   return (
     <section className="relative py-20 md:py-32 ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Headline */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 text-center leading-tight">
-          <span className="text-outline">CORE FEATURES</span>
-          <br />
-          <span className="text-soundbook-light-blue">THAT POWER THE BEAT</span>
-        </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left: Feature List */}
           <div className="space-y-8">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-16 leading-snug flex flex-col gap-4">
+              <span className="text-outline">CORE FEATURES</span>
+              <span className="text-soundbook-light-blue">THAT POWER THE BEAT</span>
+            </h2>
             {features.map((feature, index) => (
               <div key={index} className="flex gap-6">
                 {/* Circular icon with ring */}
