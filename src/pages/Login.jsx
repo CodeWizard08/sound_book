@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Loader2, ArrowRight } from 'lucide-react'
+import loginImage from '../assets/image/login/bg.png'
+import backgroundImage from '../assets/image/whole-bg.png'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -27,37 +30,37 @@ const Login = () => {
 
   const validateForm = () => {
     const newErrors = {}
-    
+
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required'
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email is invalid'
     }
-    
+
     if (!formData.password) {
       newErrors.password = 'Password is required'
     } else if (formData.password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters'
     }
-    
+
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     if (!validateForm()) {
       return
     }
-    
+
     setIsLoading(true)
-    
+
     // Simulate API call
     try {
       // TODO: Replace with actual API call
       await new Promise(resolve => setTimeout(resolve, 1000))
-      
+
       // On success, redirect to home or dashboard
       navigate('/')
     } catch (error) {
@@ -68,28 +71,30 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex">
+    <div className="min-h-screen flex">
+      {/* background image */}
+      <img src={backgroundImage} alt="Background" className="w-full h-full object-cover absolute top-0 left-0 z-0" />
       {/* Left Section - Content & Form (60%) */}
-      <div className="w-full lg:w-[60%] flex flex-col px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-8 md:py-12">
+      <div className="w-full lg:w-[70%] flex flex-col px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-8 md:py-12 z-10">
         {/* Logo */}
         <Link to="/" className="text-2xl md:text-3xl font-bold text-white mb-8 md:mb-12">
           SOUNDBOOK
         </Link>
 
         {/* Welcome Message */}
-        <div className="mb-8 md:mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight mb-4">
+        <div className="mb-8 md:mb-12 font-bdo-grotesk">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
             WELCOME BACK
             <br />
             TO SOUNDBOOK
           </h1>
-          <p className="text-base md:text-lg text-white/80 max-w-lg">
+          <p className="text-base md:text-lg text-white/80 max-w-[590px]">
             Your gateway to contributing and exploring the world of music knowledge.
           </p>
         </div>
 
         {/* Login Form Section */}
-        <div className="max-w-md">
+        <div className="max-w-md font-bdo-grotesk">
           <h2 className="text-xl md:text-2xl font-bold text-white mb-6">
             Log In to Your Account
           </h2>
@@ -106,9 +111,8 @@ const Login = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 bg-[#1a1a1a] border ${
-                  errors.email ? 'border-red-500' : 'border-gray-600'
-                } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-400 transition-colors`}
+                className={`w-full px-4 py-3 bg-[#1a1a1a] border ${errors.email ? 'border-red-500' : 'border-gray-600'
+                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-400 transition-colors`}
                 placeholder="Enter Email Address"
               />
               {errors.email && (
@@ -127,9 +131,8 @@ const Login = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 bg-[#1a1a1a] border ${
-                  errors.password ? 'border-red-500' : 'border-gray-600'
-                } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-400 transition-colors`}
+                className={`w-full px-4 py-3 bg-[#1a1a1a] border ${errors.password ? 'border-red-500' : 'border-gray-600'
+                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-400 transition-colors`}
                 placeholder="Enter your Password"
               />
               {errors.password && (
@@ -169,18 +172,13 @@ const Login = () => {
             >
               {isLoading ? (
                 <>
-                  <svg className="animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
+                  <Loader2 className="h-5 w-5 text-black animate-spin" />
                   Logging in...
                 </>
               ) : (
                 <>
                   Login
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
+                  <ArrowRight className="w-5 h-5" />
                 </>
               )}
             </button>
@@ -202,38 +200,8 @@ const Login = () => {
       </div>
 
       {/* Right Section - Vinyl Record Image (40%) */}
-      <div className="hidden lg:flex lg:w-[40%] relative items-center justify-center p-8">
-        {/* Pill-shaped container with vinyl record */}
-        <div className="relative w-full h-full max-w-2xl rounded-[3rem] overflow-hidden">
-          {/* Vinyl Record Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-            {/* Vinyl Record */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative w-[80%] aspect-square">
-                {/* Outer vinyl record */}
-                <div className="absolute inset-0 rounded-full bg-black shadow-2xl">
-                  {/* Grooves pattern */}
-                  <div className="absolute inset-0 rounded-full" style={{
-                    backgroundImage: `radial-gradient(circle at center, transparent 20%, rgba(255,255,255,0.03) 20.5%, transparent 21%, rgba(255,255,255,0.03) 21.5%, transparent 22%, rgba(255,255,255,0.03) 22.5%, transparent 23%, rgba(255,255,255,0.03) 23.5%, transparent 24%, rgba(255,255,255,0.03) 24.5%, transparent 25%, rgba(255,255,255,0.03) 25.5%, transparent 26%, rgba(255,255,255,0.03) 26.5%, transparent 27%, rgba(255,255,255,0.03) 27.5%, transparent 28%, rgba(255,255,255,0.03) 28.5%, transparent 29%, rgba(255,255,255,0.03) 29.5%, transparent 30%, rgba(255,255,255,0.03) 30.5%, transparent 31%, rgba(255,255,255,0.03) 31.5%, transparent 32%, rgba(255,255,255,0.03) 32.5%, transparent 33%, rgba(255,255,255,0.03) 33.5%, transparent 34%, rgba(255,255,255,0.03) 34.5%, transparent 35%, rgba(255,255,255,0.03) 35.5%, transparent 36%, rgba(255,255,255,0.03) 36.5%, transparent 37%, rgba(255,255,255,0.03) 37.5%, transparent 38%, rgba(255,255,255,0.03) 38.5%, transparent 39%, rgba(255,255,255,0.03) 39.5%, transparent 40%, rgba(255,255,255,0.03) 40.5%, transparent 41%, rgba(255,255,255,0.03) 41.5%, transparent 42%, rgba(255,255,255,0.03) 42.5%, transparent 43%, rgba(255,255,255,0.03) 43.5%, transparent 44%, rgba(255,255,255,0.03) 44.5%, transparent 45%, rgba(255,255,255,0.03) 45.5%, transparent 46%, rgba(255,255,255,0.03) 46.5%, transparent 47%, rgba(255,255,255,0.03) 47.5%, transparent 48%, rgba(255,255,255,0.03) 48.5%, transparent 49%, rgba(255,255,255,0.03) 49.5%, transparent 50%)`
-                  }}></div>
-                  
-                  {/* Center label - dark teal/bluish-green */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[35%] h-[35%] rounded-full bg-gradient-to-br from-teal-600 via-teal-500 to-cyan-500 opacity-80 blur-sm"></div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[30%] h-[30%] rounded-full bg-gradient-to-br from-teal-500 via-cyan-400 to-teal-400"></div>
-                  
-                  {/* Center hole */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[8%] h-[8%] rounded-full bg-black"></div>
-                </div>
-                
-                {/* Depth/shadow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-transparent via-black/20 to-black/40"></div>
-              </div>
-            </div>
-            
-            {/* Subtle gradient overlay on far right */}
-            <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-transparent via-purple-900/10 to-transparent"></div>
-          </div>
-        </div>
+      <div className="hidden lg:flex lg:w-[60%] relative items-center justify-center p-8">
+        <img src={loginImage} alt="Login" className="w-full h-full object-cover rounded-3xl" />
       </div>
     </div>
   )
