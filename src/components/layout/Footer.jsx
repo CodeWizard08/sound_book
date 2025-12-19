@@ -70,7 +70,7 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            <div className="w-screen border-t border-white/10 absolute bottom-0 -left-1/3"></div>
+            <div className="w-screen border-t border-white/10 absolute bottom-0 -left-[40%]"></div>
           </div>
 
           {/* Separator Line */}
