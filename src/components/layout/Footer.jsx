@@ -47,10 +47,11 @@ const Footer = () => {
   return (
     <footer className="relative pt-16 md:pt-24 pb-12 overflow-hidden">
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center space-y-8 md:space-y-12">
-          {/* Logo - Centered at top */}
-          <div className="relative flex flex-col items-center gap-14 py-20">
+      <div className="flex flex-col items-center space-y-8 md:space-y-12">
+        {/* Logo - Centered at top */}
+
+        <div className="relative py-20 w-full">
+          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-14">
             <Link to="/" className="text-3xl sm:text-4xl md:text-[80px] lg:text-[100px] xl:text-[130px] lg:pb-5 font-bold text-white hover:text-soundbook-light-blue transition-colors">
               SOUNDBOOK
             </Link>
@@ -70,18 +71,18 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            <div className="w-screen border-t border-white/10 absolute bottom-0 -left-[40%]"></div>
           </div>
-
-          {/* Separator Line */}
-
-          {/* Copyright - Centered at bottom */}
-          <p className="text-white text-sm md:text-lg font-bdo-grotesk font-light">
-            © Copyright 2025. All Rights Reserved
-          </p>
+          <div className="w-screen border-t border-white/10 absolute bottom-0 left-0"></div>
         </div>
+
+        {/* Separator Line */}
+
+        {/* Copyright - Centered at bottom */}
+        <p className="text-white text-sm md:text-lg font-bdo-grotesk font-light">
+          © Copyright 2025. All Rights Reserved
+        </p>
       </div>
-    </footer>
+    </footer >
   )
 }
 
