@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
-import backgroundImage from '../assets/image/whole-bg.png'
+import backgroundImage from '../assets/image/bg.png'
 
 const MainLayout = () => {
   return (

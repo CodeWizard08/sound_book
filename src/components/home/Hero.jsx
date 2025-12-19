@@ -14,14 +14,14 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-18 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Headline */}
         <h1 className="text-3xl font-moderniz sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 flex flex-col gap-4">
           <span className="text-white">EXPLORE</span>
           <span className="text-white">THE WORLD OF MUSIC</span>
-          <span className="text-outline">TOGETHER.</span>
+          <span className="text-outline ">TOGETHER.</span>
         </h1>
 
         {/* Sub-headline */}

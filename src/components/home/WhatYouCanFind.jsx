@@ -41,11 +41,11 @@ const WhatYouCanFind = () => {
         </p>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 border border-white/10 rounded-2xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 border border-white/20 rounded-3xl">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`p-10 font-bdo-grotesk max-w-[350px] ${index !== 0 ? 'border-l border-white/10' : ''}`}
+              className={`p-10 font-bdo-grotesk max-w-[380px] ${index !== 0 ? 'border-l border-white/10' : ''}`}
             >
               {/* Circular icon with ring */}
               <div className="relative w-16 h-16 mb-6">
