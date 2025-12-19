@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MoveUpRight } from 'lucide-react'
-import heroImage from '../../assets/image/landing/first-bg.png'
 
 const Hero = () => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -16,11 +15,6 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-18 overflow-hidden">
-
-      {/* background image */}
-      {/* <div className="absolute inset-0">
-        <img src={heroImage} alt="Hero" className="w-full h-full object-cover" />
-      </div> */}
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Headline */}
